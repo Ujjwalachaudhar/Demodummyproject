@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Edit Employee</h1>
+
+<form th:action="@{/api/update/{id}(id=${emp.empid})}" th:object="${emp}" method="post">
+
+
+    <label for="empname">Name</label>
+    <input type="text" id="empname" th:field="*{empname}">
+
+    <label for="empemailid">Email</label>
+    <input type="text" id="empemailid" th:field="*{empemailid}">
+
+    <label for="empsalary">Salary</label>
+    <input type="text" id="empsalary" th:field="*{empsalary}">
+
+    <label for="empphoneno">Phone Number</label>
+    <input type="text" id="empphoneno" th:field="*{empphoneno}">
+
+    <label for="emppassword">Password</label>
+    <input type="password" id="emppassword" th:field="*{emppassword}">
+
+    <button type="submit">Update Employee</button>
+</form>
+
+<p>
+    <a th:href="@{/api/employees}">Back to Employee List</a>
+</p>
+</body>
+</html>
